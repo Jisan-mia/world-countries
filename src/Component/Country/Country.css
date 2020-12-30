@@ -1,0 +1,14 @@
+/* .country {
+	margin-top: 8px;
+} */
+.panel-heading .country-name {
+	line-height: 0px;
+}
+.panel-heading .country-name p {
+	font-size: 17px;
+	line-height: 17px;
+}
+
+.table th {
+	font-weight: 600;
+}

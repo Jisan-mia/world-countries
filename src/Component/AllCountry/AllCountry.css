@@ -1,0 +1,27 @@
+.grid-display {
+	display: grid;
+	grid-template-columns: repeat(4, auto);
+}
+
+@media (max-width: 1024px) {
+	.grid-display {
+		grid-template-columns: repeat(3, auto);
+	}
+}
+
+@media (max-width: 991px) {
+	.grid-display {
+		grid-template-columns: repeat(2, auto);
+	}
+}
+
+@media (max-width: 768px) {
+	.grid-display {
+		grid-template-columns: repeat(1, auto);
+	}
+}
+@media (max-width: 425px) {
+	.grid-display .country {
+		margin: 20px 0 0 0 !important;
+	}
+}

@@ -1,0 +1,16 @@
+.country-detail h1,
+.country-detail h2 {
+	font-weight: 400;
+}
+
+.country-detail .table.table-bordered th,
+.country-detail .table.table-bordered td {
+	font-size: 15px;
+	padding: 9px;
+}
+.transalation {
+	display: none;
+}
+.transalation.open {
+	display: block;
+}
