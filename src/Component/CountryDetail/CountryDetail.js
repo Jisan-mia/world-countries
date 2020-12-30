@@ -197,7 +197,7 @@ const CountryDetail = () => {
 						<img
 							src={flag}
 							alt="country flag"
-							className="img-fluid img-responsive w-100 mb-3"
+							className="img-fluid img-responsive w-100 mb-3 shadow"
 						/>
 					</div>
 				</div>
