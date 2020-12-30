@@ -14,3 +14,7 @@
 .transalation.open {
 	display: block;
 }
+
+.country-detail table.table {
+	box-shadow: 0px 0px 17px 1px rgba(0, 0, 0, 0.1);
+}

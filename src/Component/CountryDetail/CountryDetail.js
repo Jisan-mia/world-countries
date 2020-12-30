@@ -54,8 +54,8 @@ const CountryDetail = () => {
 				<div className="row">
 					<div className="col-md-4">
 						<h2>Names</h2>
-						<div className="table-responsive">
-							<table className="table table-bordered">
+						<div className="table-responsive  ">
+							<table className="table table-bordered ">
 								<tbody>
 									<tr>
 										<th>Common </th> <td>{name}</td>
@@ -99,7 +99,7 @@ const CountryDetail = () => {
 						<h2>Codes</h2>
 
 						<div className="table-responsive">
-							<table className="table table-bordered">
+							<table className="table table-bordered  ">
 								<tbody>
 									<tr>
 										<th>ISO 3166-1 alpha-2 </th> <td>{alpha2Code}</td>
@@ -128,8 +128,8 @@ const CountryDetail = () => {
 					{/* 2nd column */}
 					<div className="col-md-4">
 						<h2>Language</h2>
-						<div className="table-responsive">
-							<table className="table table-bordered">
+						<div className="table-responsive  ">
+							<table className="table table-bordered ">
 								<tbody>
 									<tr>
 										<th>Native language </th> <td>{languages[0].name}</td>
