@@ -30,7 +30,7 @@ const AllCountry = () => {
 		<div className="container ">
 			<div className="input-group mt-4">
 				<div className="">
-					<select className="custom-select 		border shadow" type="button">
+					<select className="custom-select 	border shadow" type="button">
 						<option value="search" disabled className="dropdown-item">
 							Search By
 						</option>
@@ -46,7 +46,11 @@ const AllCountry = () => {
 						</option>
 					</select>
 				</div>
-				<input type="text" className="form-control " />
+				<input
+					type="text"
+					className="form-control "
+					placeholder="Not yet developed search opt."
+				/>
 			</div>
 			{/* show loading... if isLoading is still true */}
 			{loading}
