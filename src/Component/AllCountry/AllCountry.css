@@ -1,17 +1,17 @@
 .grid-display {
 	display: grid;
-	grid-template-columns: repeat(4, auto);
+	grid-template-columns: repeat(4, 308px);
 }
 
 @media (max-width: 1024px) {
 	.grid-display {
-		grid-template-columns: repeat(3, auto);
+		grid-template-columns: repeat(3, 308px);
 	}
 }
 
 @media (max-width: 991px) {
 	.grid-display {
-		grid-template-columns: repeat(2, auto);
+		grid-template-columns: repeat(2, 308px);
 	}
 }
 

@@ -24,8 +24,8 @@ const Country = (props) => {
 		margin: "5px",
 	};
 	return (
-		<div className="country border m-2" style={countryStyle}>
-			<div className="panel-heading d-flex justify-content-between align-items-center p-3">
+		<div className="country border m-2 shadow" style={countryStyle}>
+			<div className="panel-heading d-flex justify-content-between align-items-center p-3 text-light bg-info">
 				<div className="country-name">
 					<p className="panel-title ">{name}</p>
 					<br />
@@ -35,7 +35,7 @@ const Country = (props) => {
 				<div
 					onClick={() => handleMorebtn(name)}
 					type="btn"
-					className="btn btn-outline-primary btn-sm"
+					className="btn btn-secondary text-white btn-sm"
 				>
 					More
 				</div>
@@ -61,8 +61,8 @@ const Country = (props) => {
 					<tr>
 						<th>Languages</th>
 						<td>
-							{languages.map((lang) => (
-								<span>
+							{languages.map((lang, index) => (
+								<span key={index}>
 									{lang.iso639_2} {langLength > 1 ? "," : ""}
 								</span>
 							))}

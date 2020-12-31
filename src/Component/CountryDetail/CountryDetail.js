@@ -66,17 +66,19 @@ const CountryDetail = () => {
 									</tr>
 
 									<tr>
-										<th>Alternative Spellings</th>{" "}
+										<th>Alternative Spellings</th>
 										<td>
 											{altSpellings &&
-												altSpellings.map((item) => <span> {item}, </span>)}
+												altSpellings.map((item, index) => (
+													<span key={index}> {item}, </span>
+												))}
 										</td>
 									</tr>
 									<tr>
-										<th colspan="2">
-											Translations{" "}
+										<th colSpan="2">
+											Translations
 											<span
-												className="ml-auto text-info "
+												className="ml-auto text-info"
 												style={{ cursor: "pointer" }}
 												onClick={() => {
 													setIsTranslate(!isTranslate);
@@ -87,7 +89,10 @@ const CountryDetail = () => {
 										</th>
 									</tr>
 									{Object.keys(translations).map((item, id) => (
-										<tr className={isTranslate ? "open" : "transalation"}>
+										<tr
+											key={id}
+											className={isTranslate ? "open" : "transalation"}
+										>
 											<th>{item}</th>
 											<td>{translations[item]}</td>
 										</tr>
@@ -99,7 +104,7 @@ const CountryDetail = () => {
 						<h2>Codes</h2>
 
 						<div className="table-responsive">
-							<table className="table table-bordered  ">
+							<table className="table table-bordered ">
 								<tbody>
 									<tr>
 										<th>ISO 3166-1 alpha-2 </th> <td>{alpha2Code}</td>
@@ -128,18 +133,18 @@ const CountryDetail = () => {
 					{/* 2nd column */}
 					<div className="col-md-4">
 						<h2>Language</h2>
-						<div className="table-responsive  ">
-							<table className="table table-bordered ">
+						<div className="table-responsive ">
+							<table className="table table-bordered">
 								<tbody>
 									<tr>
 										<th>Native language </th> <td>{languages[0].name}</td>
 									</tr>
 									<tr>
-										<th colspan="2">Languages</th>
+										<th colSpan="2">Languages</th>
 									</tr>
 
 									{languages.map((item, index) => (
-										<tr>
+										<tr key={index}>
 											<th>{item.iso639_2}</th> <td>{item.name}</td>
 										</tr>
 									))}
@@ -164,10 +169,10 @@ const CountryDetail = () => {
 										<th>Demonym</th> <td> {demonym} </td>
 									</tr>
 									<tr>
-										<th>Lat/Lng</th>{" "}
+										<th>Lat/Lng</th>
 										<td>
-											{latlng.map((item) => (
-												<span> {item} , </span>
+											{latlng.map((item, index) => (
+												<span key={index}> {item} , </span>
 											))}
 										</td>
 									</tr>
@@ -180,8 +185,8 @@ const CountryDetail = () => {
 									<tr>
 										<th>Borders</th>
 										<td>
-											{borders.map((border) => (
-												<span>{border} , </span>
+											{borders.map((border, index) => (
+												<span key={index}>{border} , </span>
 											))}
 										</td>
 									</tr>
