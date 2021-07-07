@@ -1,9 +1,9 @@
 import React from "react";
-
+import "./Contact.css";
 const Contact = () => {
 	return (
-		<div className="container py-2">
-			<div className="jumbotron bg-dark text-white shadow">
+		<div className="container d-flex justify-content-center py-4">
+			<div className="jumbotron text-black w-50 mobileDesign ">
 				<div className="py-1">
 					<form className="row g-3 needs-validation">
 						<div className="col-md-6 py-2">
