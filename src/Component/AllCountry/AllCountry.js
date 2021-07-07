@@ -1,19 +1,15 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { CountriesContext } from "../../CountriesContext";
 import Country from "../Country/Country";
 import "./AllCountry.css";
 const AllCountry = () => {
-	const [countries, setCountries] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
 	const [searchTerm, setSearchTerm] = useState("");
 	const [searchResult, setSearchResult] = useState([]);
 
-	useEffect(() => {
-		loadData();
-	}, []);
+	const { allCountry } = useContext(CountriesContext);
 
 	useEffect(() => {
-		const result = countries.filter(
+		const result = allCountry.filter(
 			(country) =>
 				country.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
 				country.alpha2Code.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -25,21 +21,7 @@ const AllCountry = () => {
 		setSearchResult(result);
 	}, [searchTerm]);
 
-	const loadData = async () => {
-		const response = await axios.get("https://restcountries.eu/rest/v2/all");
-		setCountries(response.data);
-		setIsLoading(false);
-	};
 	// console.log(countries);
-
-	let loading;
-	if (isLoading) {
-		loading = (
-			<div>
-				<i>Loading...</i>
-			</div>
-		);
-	}
 
 	return (
 		<div className="container ">
@@ -74,16 +56,17 @@ const AllCountry = () => {
 				/>
 			</div>
 			{/* show loading... if isLoading is still true */}
-			{loading}
 
 			<div className="grid-display mt-4">
 				{searchTerm
 					? searchResult.map((country) => (
 							<Country key={country.name} country={country}></Country>
 					  ))
-					: countries.map((country) => (
+					: allCountry.length
+					? allCountry.map((country) => (
 							<Country key={country.name} country={country}></Country>
-					  ))}
+					  ))
+					: "Loading.."}
 			</div>
 		</div>
 	);

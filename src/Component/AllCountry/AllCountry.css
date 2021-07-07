@@ -1,25 +1,9 @@
 .grid-display {
 	display: grid;
-	grid-template-columns: repeat(4, 308px);
+	/* grid-template-columns: repeat(4, 308px); */
+	grid-template-columns: repeat(auto-fit, minmax(280px, auto));
 }
 
-@media (max-width: 1024px) {
-	.grid-display {
-		grid-template-columns: repeat(3, 308px);
-	}
-}
-
-@media (max-width: 991px) {
-	.grid-display {
-		grid-template-columns: repeat(2, 308px);
-	}
-}
-
-@media (max-width: 768px) {
-	.grid-display {
-		grid-template-columns: repeat(1, auto);
-	}
-}
 @media (max-width: 425px) {
 	.grid-display .country {
 		margin: 20px 0 0 0 !important;

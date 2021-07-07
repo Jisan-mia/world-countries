@@ -16,7 +16,7 @@ const Country = (props) => {
 
 	const history = useHistory();
 	const handleMorebtn = (countryName) => {
-		const url = `country/${countryName}`;
+		const url = `countries/${countryName}`;
 		history.push(url);
 	};
 

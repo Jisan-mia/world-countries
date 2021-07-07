@@ -1,6 +1,7 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { CountriesContext } from "../../CountriesContext";
 import "./CountryDetail.css";
 
 const CountryDetail = () => {
@@ -8,8 +9,19 @@ const CountryDetail = () => {
 	const [country, setCountry] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
 	const [isTranslate, setIsTranslate] = useState(false);
+
+	const { allCountry } = useContext(CountriesContext);
+
 	useEffect(() => {
-		loadData();
+		if (allCountry.length) {
+			const matchedCountry = allCountry.find(
+				(country) => country.name === countryName
+			);
+			setCountry(matchedCountry);
+			setIsLoading(false);
+		} else {
+			loadData();
+		}
 	}, []);
 
 	const loadData = async () => {
@@ -54,7 +66,7 @@ const CountryDetail = () => {
 				<div className="row">
 					<div className="col-md-4">
 						<h2>Names</h2>
-						<div className="table-responsive  ">
+						<div className="table-responsive">
 							<table className="table table-bordered ">
 								<tbody>
 									<tr>
