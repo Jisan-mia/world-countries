@@ -22,7 +22,7 @@ const App = () => {
 		if (countries) {
 			setAllCountry(JSON.parse(countries));
 		} else {
-			const response = await axios.get("https://restcountries.eu/rest/v2/all");
+			const response = await axios.get("https://restcountries.com/v3.1/all");
 			setAllCountry(response.data);
 			sessionStorage.setItem("countries", JSON.stringify(response.data));
 		}

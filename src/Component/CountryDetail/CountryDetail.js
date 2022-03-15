@@ -13,9 +13,9 @@ const CountryDetail = () => {
 	const { allCountry } = useContext(CountriesContext);
 
 	useEffect(() => {
-		if (allCountry.length) {
+		if (allCountry.length !== 0) {
 			const matchedCountry = allCountry.find(
-				(country) => country.name === countryName
+				(country) => country.common.name === countryName
 			);
 			setCountry(matchedCountry);
 			setIsLoading(false);
@@ -25,7 +25,7 @@ const CountryDetail = () => {
 	}, []);
 
 	const loadData = async () => {
-		const url = `https://restcountries.eu/rest/v2/name/${countryName}`;
+		const url = `https://restcountries.com/v3.1/name/${countryName}`;
 		const response = await axios.get(url);
 		console.log(response.data[0]);
 		setCountry(response.data[0]);
@@ -33,7 +33,7 @@ const CountryDetail = () => {
 	};
 
 	const {
-		name,
+		name: {common: name },
 		flag,
 		nativeName,
 		altSpellings,

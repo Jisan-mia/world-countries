@@ -3,16 +3,23 @@ import { useHistory } from "react-router-dom";
 import "./Country.css";
 const Country = (props) => {
 	const {
-		name,
-		nativeName,
+		name: {common: name },
 		capital,
 		region,
-		alpha2Code,
-		alpha3Code,
-		languages,
+		cca2,
+		cca3,
 	} = props.country;
 
-	let langLength = languages.length;
+	const iddChecker = (idd) => idd[1]?.length < 2 ? idd.flat().join('') : idd[0]
+
+	const idd = typeof props.country?.idd == 'object' ? iddChecker(Object.values(props.country?.idd)) : '--'
+	console.log(Object.values(props.country?.idd))
+	console.log(idd)
+
+
+	const nativeName = typeof props.country?.name?.nativeName == 'object' ? props.country?.name?.nativeName[Object.keys(props.country?.name?.nativeName)[0]].common : props.country?.name?.official || undefined
+
+	const languages = typeof props.country?.languages == 'object' ? Object.keys(props.country.languages).join(', ') : undefined
 
 	const history = useHistory();
 	const handleMorebtn = (countryName) => {
@@ -52,20 +59,22 @@ const Country = (props) => {
 					</tr>
 					<tr>
 						<th>Alpha 2 Code</th>
-						<td>{alpha2Code}</td>
+						<td>{cca2}</td>
 					</tr>
 					<tr>
 						<th>Alpha 3 Code</th>
-						<td>{alpha3Code}</td>
+						<td>{cca3}</td>
 					</tr>
+
+					<tr>
+						<th>Int. dial coee</th>
+						<td>{cca3}</td>
+					</tr>
+					
 					<tr>
 						<th>Languages</th>
 						<td>
-							{languages.map((lang, index) => (
-								<span key={index}>
-									{lang.iso639_2} {langLength > 1 ? "," : ""}
-								</span>
-							))}
+							{languages}
 						</td>
 					</tr>
 				</tbody>

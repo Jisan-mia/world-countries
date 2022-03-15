@@ -7,14 +7,18 @@ const AllCountry = () => {
 	const [searchResult, setSearchResult] = useState([]);
 
 	const { allCountry } = useContext(CountriesContext);
+	// console.log(allCountry)
+
+	const capitalGetter = (country) => (country?.capital?.join(' ') || '')	
 
 	useEffect(() => {
 		const result = allCountry.filter(
 			(country) =>
-				country.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-				country.alpha2Code.toLowerCase().includes(searchTerm.toLowerCase()) ||
-				country.region.toLowerCase().includes(searchTerm.toLowerCase()) ||
-				country.capital.toLowerCase().includes(searchTerm.toLowerCase())
+				country.name?.common.toLowerCase().includes(searchTerm.toLowerCase()) ||
+				country?.cca2.toLowerCase().includes(searchTerm.toLowerCase()) ||
+				country?.cca3.toLowerCase().includes(searchTerm.toLowerCase()) ||
+				country?.region.toLowerCase().includes(searchTerm.toLowerCase()) ||
+				capitalGetter(country).toLowerCase().includes(searchTerm.toLowerCase())
 		);
 		// console.log(result);
 
@@ -44,6 +48,9 @@ const AllCountry = () => {
 						<option value="countryCode" className="dropdown-item">
 							Alpha 2 Code
 						</option>
+						<option value="countryCode" className="dropdown-item">
+							Alpha 3 Code
+						</option>
 					</select>
 				</div>
 				<input
@@ -60,11 +67,11 @@ const AllCountry = () => {
 			<div className="grid-display mt-4">
 				{searchTerm
 					? searchResult.map((country) => (
-							<Country key={country.name} country={country}></Country>
+							<Country key={country.name.common} country={country}></Country>
 					  ))
 					: allCountry.length
 					? allCountry.map((country) => (
-							<Country key={country.name} country={country}></Country>
+							<Country key={country.name.common} country={country}></Country>
 					  ))
 					: "Loading.."}
 			</div>
