@@ -12,12 +12,20 @@ const CountryDetail = () => {
 
 	const { allCountry } = useContext(CountriesContext);
 
+	console.log(countryName)
 	useEffect(() => {
+		console.log(countryName)
+		console.log(allCountry.length)
+
+
 		if (allCountry.length !== 0) {
 			const matchedCountry = allCountry.find(
 				(country) => country.common.name === countryName
 			);
 			setCountry(matchedCountry);
+			console.log(countryName)
+			console.log(country)
+
 			setIsLoading(false);
 		} else {
 			loadData();
@@ -27,10 +35,12 @@ const CountryDetail = () => {
 	const loadData = async () => {
 		const url = `https://restcountries.com/v3.1/name/${countryName}`;
 		const response = await axios.get(url);
-		console.log(response.data[0]);
 		setCountry(response.data[0]);
 		setIsLoading(false);
 	};
+
+	console.log(country)
+
 
 	const {
 		name: {common: name },

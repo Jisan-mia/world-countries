@@ -13,8 +13,6 @@ const Country = (props) => {
 	const iddChecker = (idd) => idd[1]?.length < 2 ? idd.flat().join('') : idd[0]
 
 	const idd = typeof props.country?.idd == 'object' ? iddChecker(Object.values(props.country?.idd)) : '--'
-	console.log(Object.values(props.country?.idd))
-	console.log(idd)
 
 
 	const nativeName = typeof props.country?.name?.nativeName == 'object' ? props.country?.name?.nativeName[Object.keys(props.country?.name?.nativeName)[0]].common : props.country?.name?.official || undefined
@@ -31,7 +29,7 @@ const Country = (props) => {
 		margin: "5px",
 	};
 	return (
-		<div className="country border m-2 shadow" style={countryStyle}>
+		<div className="country m-2" style={countryStyle}>
 			<div className="panel-heading d-flex justify-content-between align-items-center p-3 text-light bg-info">
 				<div className="country-name">
 					<p className="panel-title ">{name}</p>
@@ -68,7 +66,7 @@ const Country = (props) => {
 
 					<tr>
 						<th>Int. dial coee</th>
-						<td>{cca3}</td>
+						<td>{idd || '--'}</td>
 					</tr>
 					
 					<tr>

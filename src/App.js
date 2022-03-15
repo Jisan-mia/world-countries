@@ -13,6 +13,16 @@ import { CountriesContext } from "./CountriesContext";
 
 const App = () => {
 	const [allCountry, setAllCountry] = useState([]);
+	
+	const countrySortByName= (arr) =>  arr.sort(function(a, b){
+		const nameA = a.name.common.toLowerCase();
+		const nameB = b.name.common.toLowerCase();
+		if (nameA < nameB) //sort string ascending
+		 return -1;
+		if (nameA > nameB)
+		 return 1;
+		return 0; //default return value (no sorting)
+	 });
 
 	useEffect(() => {
 		loadData();
@@ -20,10 +30,10 @@ const App = () => {
 	const loadData = async () => {
 		let countries = sessionStorage.getItem("countries");
 		if (countries) {
-			setAllCountry(JSON.parse(countries));
+			setAllCountry(countrySortByName(JSON.parse(countries)))
 		} else {
 			const response = await axios.get("https://restcountries.com/v3.1/all");
-			setAllCountry(response.data);
+			setAllCountry(countrySortByName(response.data))
 			sessionStorage.setItem("countries", JSON.stringify(response.data));
 		}
 	};
