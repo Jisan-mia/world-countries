@@ -41,7 +41,7 @@ const Header = () => {
 						id="navbarSupportedContent"
 					>
 						<ul className="navbar-nav ml-auto">
-							<li className="nav-item ">
+							<li className="nav-item">
 								<NavLink
 									activeClassName="active-item"
 									to="/countries"
