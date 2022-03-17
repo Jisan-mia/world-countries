@@ -44,7 +44,6 @@ const CountryDetail = () => {
 		capital,
 		demonyms,
 		area,
-		borders,
 		latlng,
 	} = country;
 
@@ -56,6 +55,8 @@ const CountryDetail = () => {
 	const slicedTranslations = obj => Object.fromEntries(
 		Object.entries(obj).slice(0, 10)
 	);
+
+	const borders = typeof country?.borders == 'object' ? country.borders : ['--']
 
 	
 	const commonNative = typeof country?.name?.nativeName == 'object' ? country?.name?.nativeName[Object.keys(country?.name?.nativeName)[0]].common : '--'
