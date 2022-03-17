@@ -74,10 +74,11 @@ const Header = () => {
 							</li>
 							<li className="nav-item">
 								<a
+									target='_blank'
 									className="nav-link "
-									href="https://linkedin.com/in/jisan-mia"
+									href="https://github.com/Jisan-mia/world-countries"
 								>
-									Follow Me
+									Github
 								</a>
 							</li>
 						</ul>

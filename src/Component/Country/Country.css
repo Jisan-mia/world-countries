@@ -8,10 +8,49 @@
 	line-height: 0px;
 }
 .panel-heading .country-name p {
-	font-size: 17px;
-	line-height: 17px;
+	color: #000000dc;
+	font-weight: 600;
+	font-size: 1.2rem;
+	line-height: 1.3rem;
 }
 
 .table th {
 	font-weight: 600;
+}
+.panel-header {
+background-color: rgb(248, 249, 250);
+}
+.panel-header:hover{
+	background-color: rgba(241, 245, 248, 0.774)
+}
+.more-btn {
+  background: rgb(231, 245, 255);
+	font-size: 0.98rem;
+	color: rgb(34, 139, 230);
+	border-radius: 4px;
+	display: inline-block;
+	transition: all .2s;
+	position: relative;
+	padding: 5px 15px;
+	position: relative;
+	top: 0;
+	cursor: pointer;
+	margin: 0 ;
+}
+.more-btn:active {
+	transform: translateY(1px)
+}
+.more-btn:hover {
+	background-color: rgba(208, 235, 255, 0.65);
+}
+
+
+.country-table th, .country-table td{
+	color: #000000e7;
+	font-weight: 600;
+	font-size: 0.98rem;
+}
+.country-table td{
+	font-weight: 500;
+	color: #000000cb;
 }

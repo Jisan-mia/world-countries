@@ -20,7 +20,7 @@ const Country = (props) => {
 	const languages = typeof props.country?.languages == 'object' ? Object.keys(props.country.languages).join(', ') : undefined
 
 	const history = useHistory();
-	const handleMorebtn = (countryName) => {
+	const handleMoreBtn = (countryName) => {
 		const url = `countries/${countryName}`;
 		history.push(url);
 	};
@@ -30,22 +30,22 @@ const Country = (props) => {
 	};
 	return (
 		<div className="country m-2" style={countryStyle}>
-			<div className="panel-heading d-flex justify-content-between align-items-center p-3 text-light bg-info">
+			<div className="panel-heading d-flex justify-content-between align-items-center p-3 panel-header">
 				<div className="country-name">
-					<p className="panel-title ">{name}</p>
+					<p className="panel-title">{name}</p>
 					<br />
 					<small>{nativeName}</small>
 				</div>
 
 				<div
-					onClick={() => handleMorebtn(name)}
+					onClick={() => handleMoreBtn(name)}
 					type="btn"
-					className="btn btn-secondary text-white btn-sm"
+					className="more-btn"
 				>
 					More
 				</div>
 			</div>
-			<table className="table">
+			<table className="table country-table">
 				<tbody>
 					<tr>
 						<th>Capital</th>

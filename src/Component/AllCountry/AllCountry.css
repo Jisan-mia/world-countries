@@ -2,6 +2,8 @@
 	display: grid;
 	/* grid-template-columns: repeat(4, 308px); */
 	grid-template-columns: repeat(auto-fit, minmax(280px, auto));
+	gap: 0.5rem;
+	align-items: baseline;
 }
 
 @media (max-width: 425px) {
