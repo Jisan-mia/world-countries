@@ -17,7 +17,7 @@ const Country = (props) => {
 
 	const nativeName = typeof props.country?.name?.nativeName == 'object' ? props.country?.name?.nativeName[Object.keys(props.country?.name?.nativeName)[0]].common : props.country?.name?.official || undefined
 
-	const languages = typeof props.country?.languages == 'object' ? Object.keys(props.country.languages).join(', ') : undefined
+	const languages = typeof props.country?.languages == 'object' ? Object.keys(props.country.languages).join(', ') : '--'
 
 	const history = useHistory();
 	const handleMoreBtn = (countryName) => {
@@ -49,7 +49,7 @@ const Country = (props) => {
 				<tbody>
 					<tr>
 						<th>Capital</th>
-						<td>{capital}</td>
+						<td>{capital || '--'}</td>
 					</tr>
 					<tr>
 						<th>Region</th>

@@ -13,19 +13,25 @@ const CountryDetail = () => {
 	const { allCountry } = useContext(CountriesContext);
 
 	useEffect( () => {
-		try{
-			 loadData();
-		} catch(err) {
-			console.log(err)
+		if (allCountry.length !== 0) {
+			const matchedCountry = allCountry.find(
+				(country) => country?.name?.common.toLowerCase() === countryName.toLowerCase()
+			);
+			setCountry(matchedCountry);
+			setIsLoading(false);
+		} else {
+			loadData();
 		}
+		
 	}, []);
 
 
 	const loadData = async () => {
+		
 		const url = `https://restcountries.com/v3.1/name/${countryName}`;
 		const response = await axios.get(url);
 		setCountry(response.data[0]);
-		console.log(response.data[0])
+		// console.log(response.data[0])
 		setIsLoading(false);
 	};
 
@@ -115,8 +121,8 @@ const CountryDetail = () => {
 										<th colSpan="2">
 											Translations 
 											<span
-												className="ml-auto text-info pl-4"
-												style={{ cursor: "pointer" }}
+												style={{paddingLeft: '2rem',  cursor: "pointer"}}
+												className="ml-auto text-info"
 												onClick={() => {
 													setIsTranslate(!isTranslate);
 												}}
