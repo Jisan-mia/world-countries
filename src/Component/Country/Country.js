@@ -25,11 +25,9 @@ const Country = (props) => {
 		history.push(url);
 	};
 
-	const countryStyle = {
-		margin: "5px",
-	};
+
 	return (
-		<div className="country m-2" style={countryStyle}>
+		<div className="country" >
 			<div className="panel-heading d-flex justify-content-between align-items-center p-3 panel-header">
 				<div className="country-name">
 					<p className="panel-title">{name}</p>

@@ -11,11 +11,11 @@ const Header = () => {
 				<div className="container">
 					<div className="brand d-flex align-items-center">
 						<Link
-							style={{ textDecoration: "none", color: "black" }}
+							style={{ textDecoration: "none", color: "black", display: 'flex', alignItems: 'center' }}
 							to="/countries"
 						>
 							<img className="navbar-brand " alt="brand-img" src={logo} />
-							<b className="brand-text">World-Countries</b>
+							<b className="brand-text">World Countries</b>
 						</Link>
 					</div>
 
@@ -85,6 +85,20 @@ const Header = () => {
 					</div>
 				</div>
 			</nav>
+
+			{/* <nav class="minimal-nav">
+				<div class="container nav-wrapper">
+					<a href="#" class="brand">
+						<img src={logo} alt="logo" />
+						<span>Morse Decoder</span>
+					</a>
+
+					<a href="https://github.com/Jisan-mia/morse-trnsltor" class="brand">
+						<img src="/github.png" alt="github-logo" />
+						<span>Github</span>
+					</a>
+				</div>
+			</nav> */}
 		</>
 	);
 };

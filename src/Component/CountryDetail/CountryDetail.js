@@ -57,7 +57,7 @@ const CountryDetail = () => {
 	const png = country?.flags?.png || ''
 	const svg = country?.flags?.svg || ''
 
-	const slicedTranslations = obj => Object.fromEntries(
+	const sliced10obj = obj => Object.fromEntries(
 		Object.entries(obj).slice(0, 10)
 	);
 
@@ -118,10 +118,10 @@ const CountryDetail = () => {
 										</td>
 									</tr>
 									<tr>
-										<th colSpan="2">
+										<th colSpan="2" style={{position:'relative'}}>
 											Translations 
 											<span
-												style={{paddingLeft: '2rem',  cursor: "pointer"}}
+												style={{position: 'absolute', right: '15px',  cursor: "pointer"}}
 												className="ml-auto text-info"
 												onClick={() => {
 													setIsTranslate(!isTranslate);
@@ -131,7 +131,7 @@ const CountryDetail = () => {
 											</span>
 										</th>
 									</tr>
-									{Object.keys(slicedTranslations(translations)).map((item, id) => (
+									{Object.keys(sliced10obj(translations)).map((item, id) => (
 										<tr
 											key={id}
 											className={isTranslate ? "open" : "transalation"}
@@ -186,7 +186,7 @@ const CountryDetail = () => {
 										<th colSpan="2">Languages</th>
 									</tr>
 
-									{!isObjectEmpty(languages) && Object.keys(languages).map((item, index) => (
+									{!isObjectEmpty(languages) && Object.keys(sliced10obj(languages)).map((item, index) => (
 										<tr key={index}>
 											<th>{item}</th> <td>{languages[item]}</td>
 										</tr>
