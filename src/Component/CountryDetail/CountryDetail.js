@@ -36,7 +36,6 @@ const CountryDetail = () => {
 		cca2,
 		cca3,
 		ccn3,
-		currencies,
 		tld,
 		languages,
 		region,
@@ -56,6 +55,8 @@ const CountryDetail = () => {
 		Object.entries(obj).slice(0, 10)
 	);
 
+	const currencies = typeof country?.currencies == 'object' ? Object.keys(country.currencies)[0] : '--'
+	
 	const borders = typeof country?.borders == 'object' ? country.borders : ['--']
 
 	
@@ -68,7 +69,8 @@ const CountryDetail = () => {
 	const idd = typeof country?.idd == 'object' ? iddChecker(Object.values(country?.idd)) : '--'
 
 	function isObjectEmpty(obj) {
-    return Object.keys(obj).length === 0;
+		if(typeof obj !== 'object') return true
+		else return Object.keys(obj).length === 0;
 	}
 
 
@@ -155,7 +157,7 @@ const CountryDetail = () => {
 										<td>{idd || '--'} </td>
 									</tr>
 									<tr>
-										<th>ISO 4217 currency code </th> <td>{Object.keys(currencies)[0] || '--'}</td>
+										<th>ISO 4217 currency code </th> <td>{currencies}</td>
 									</tr>
 									<tr>
 										<th>Top level domain</th> <td>{tld.length ? tld.join(', ') : '--'}</td>
@@ -199,7 +201,7 @@ const CountryDetail = () => {
 										<th>Subregion</th> <td>{subregion || '--'}</td>
 									</tr>
 									<tr>
-										<th>Capital</th> <td>{capital.length && capital.join(', ')}</td>
+										<th>Capital</th> <td>{capital?.length ? capital.join(', ') : '--'}</td>
 									</tr>
 									<tr>
 										<th>Dymonym </th> <td> {!isObjectEmpty(demonyms) ? demonyms[Object.keys(demonyms)[0]]?.f : '--'} </td>
@@ -207,8 +209,9 @@ const CountryDetail = () => {
 									<tr>
 										<th>Lat/Lng</th>
 										<td>
-											{latlng.length && 
+											{latlng?.length ?
 												latlng.join(', ')
+												: '--'
 											}
 										</td>
 									</tr>
@@ -221,7 +224,7 @@ const CountryDetail = () => {
 									<tr>
 										<th>Land Borders</th>
 										<td>
-											{borders.length && 
+											{
 												borders.join(', ')
 											}
 										</td>
