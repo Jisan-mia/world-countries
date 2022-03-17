@@ -32,6 +32,7 @@ const CountryDetail = () => {
 
 	const {
 		altSpellings,
+		translations,
 		cca2,
 		cca3,
 		ccn3,
@@ -47,14 +48,16 @@ const CountryDetail = () => {
 		latlng,
 	} = country;
 
+	const translationsResizer = arr => arr.length && arr.slice(0,10)
+
 	const name = country?.name?.common || '--'
 	const official = country?.name?.official || '--'
 	const png = country?.flags?.png || ''
 	const svg = country?.flags?.svg || ''
 
-	let translations = country?.translations;
-	console.log(translations)
-
+	const slicedTranslations = obj => Object.fromEntries(
+		Object.entries(obj).slice(0, 10)
+	);
 
 	
 	const commonNative = typeof country?.name?.nativeName == 'object' ? country?.name?.nativeName[Object.keys(country?.name?.nativeName)[0]].common : '--'
@@ -109,19 +112,19 @@ const CountryDetail = () => {
 									</tr>
 									<tr>
 										<th colSpan="2">
-											Translations
+											Translations 
 											<span
-												className="ml-auto text-info"
+												className="ml-auto text-info pl-4"
 												style={{ cursor: "pointer" }}
 												onClick={() => {
 													setIsTranslate(!isTranslate);
 												}}
 											>
-												{isTranslate ? "Close" : "See"}
+												{isTranslate ? "Close" : "Show"}
 											</span>
 										</th>
 									</tr>
-									{Object.keys(translations).map((item, id) => (
+									{Object.keys(slicedTranslations(translations)).map((item, id) => (
 										<tr
 											key={id}
 											className={isTranslate ? "open" : "transalation"}
