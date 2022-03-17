@@ -65,7 +65,7 @@ const Country = (props) => {
 					</tr>
 
 					<tr>
-						<th>Int. dial coee</th>
+						<th>Int. dial code</th>
 						<td>{idd || '--'}</td>
 					</tr>
 					

@@ -48,8 +48,6 @@ const CountryDetail = () => {
 		latlng,
 	} = country;
 
-	const translationsResizer = arr => arr.length && arr.slice(0,10)
-
 	const name = country?.name?.common || '--'
 	const official = country?.name?.official || '--'
 	const png = country?.flags?.png || ''
