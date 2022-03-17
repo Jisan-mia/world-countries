@@ -1,7 +1,7 @@
 .grid-display {
 	display: grid;
 	/* grid-template-columns: repeat(auto-fit, minmax(280px, auto)); */
-	grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
+	grid-template-columns: repeat(auto-fit, minmax(280px, 289px));
 	
 	gap: 1.3rem;
 	align-items: baseline;
