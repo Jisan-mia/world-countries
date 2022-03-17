@@ -72,8 +72,8 @@ const CountryDetail = () => {
 
 
 	return (
-		<div className="container mt-2 country-detail">
-			<div className="col-md-12 px-0 py-3">
+		<div className="container mt-3 country-detail">
+			<div className="col-md-12 px-0 pt-4 ">
 				<h1>{countryName}</h1>
 				<br />
 			</div>
@@ -82,7 +82,7 @@ const CountryDetail = () => {
 			) : (
 				<div className="row">
 					<div className="col-md-4">
-						<h2>Names</h2>
+						<h2 className="mt-3">Names</h2>
 						<div className="table-responsive">
 							<table className="table table-bordered ">
 								<tbody>
@@ -135,7 +135,7 @@ const CountryDetail = () => {
 							</table>
 						</div>
 
-						<h2>Codes</h2>
+						<h2 className="mt-3">Codes</h2>
 
 						<div className="table-responsive">
 							<table className="table table-bordered ">
@@ -166,7 +166,7 @@ const CountryDetail = () => {
 
 					{/* 2nd column */}
 					<div className="col-md-4">
-						<h2>Language</h2>
+						<h2 className="mt-3">Language</h2>
 						<div className="table-responsive ">
 							<table className="table table-bordered">
 								<tbody>
@@ -187,7 +187,7 @@ const CountryDetail = () => {
 							</table>
 						</div>
 
-						<h2>Geography</h2>
+						<h2 className="mt-3">Geography</h2>
 						<div className="table-responsive">
 							<table className="table table-bordered">
 								<tbody>
@@ -233,7 +233,7 @@ const CountryDetail = () => {
 					{/* 3rd column */}
 
 					<div className="col-md-4">
-						<h2>Flag</h2>
+						<h2 className="mt-3">Flag</h2>
 						<img
 							src={svg || png || '--'}
 							alt="country flag"
