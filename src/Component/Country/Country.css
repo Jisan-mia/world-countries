@@ -13,15 +13,19 @@
 }
 
 .panel-heading .country-name {
-	line-height: 0px;
+	line-height: -7rem;
 }
 .panel-heading .country-name p {
 	color: #000000dc;
 	font-weight: 600;
 	font-size: 1.2rem;
 	line-height: 1.3rem;
+	margin-bottom: 0;
 }
 
+.panel-heading .country-name small {
+	line-height: 0.9rem;
+}
 .table th {
 	font-weight: 600;
 }
