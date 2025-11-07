@@ -32,7 +32,7 @@ const App = () => {
 		if (countries) {
 			setAllCountry(countrySortByName(JSON.parse(countries)))
 		} else {
-			const response = await axios.get("https://restcountries.com/v3.1/all");
+			const response = await axios.get("https://restcountries.com/v3.1/independent");
 			setAllCountry(countrySortByName(response.data))
 			sessionStorage.setItem("countries", JSON.stringify(response.data));
 		}
